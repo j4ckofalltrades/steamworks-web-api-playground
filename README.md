@@ -14,6 +14,6 @@ See [Importing data into Postman](https://learning.postman.com/docs/getting-star
 
 ### OpenAPI Specification
 
-Use the [Swagger Editor](https:://editor.swagger.io) to load the [OpenAPI specification yaml file](openapi/steamworks_web_api.yaml)
+Use the [Swagger Editor](https://editor.swagger.io) to load the [OpenAPI specification yaml file](openapi/steamworks_web_api.yaml)
 
 Note: The OpenAPI specification was generated from the postman collection using [postman2openapi](https://github.com/kevinswiber/postman2openapi).
