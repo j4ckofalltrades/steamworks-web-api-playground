@@ -12,7 +12,7 @@ paths:
       tags:
         - IEconService Interface
       summary: GetTradeHistory
-      description: GetTradeHistory
+      description: Gets a history of trades
       operationId: gettradehistory
       parameters:
         - name: key
@@ -72,24 +72,60 @@ paths:
       responses:
         '200':
           description: ''
-  /:
+  /IEconService/GetTradeOffers/v1:
     get:
       tags:
-        - IGameServersService Interface
-      summary: GetServerIPsBySteamID
-      description: GetServerIPsBySteamID
-      operationId: getserveripsbysteamid
+        - IEconService Interface
+      summary: GetTradeOffers
+      description: Get a list of sent or received trade offers
+      operationId: gettradeoffers
       parameters:
         - name: key
           in: query
           schema:
             type: string
           description: Steamworks Web API user authentication key.
-        - name: server_steamids
+        - name: get_sent_offers
           in: query
           schema:
             type: string
-          description: (optional)
+          description: Request the list of sent offers.
+        - name: get_received_offers
+          in: query
+          schema:
+            type: string
+          description: Request the list of received offers.
+        - name: get_descriptions
+          in: query
+          schema:
+            type: string
+          description: >-
+            If set, the item display data for the items included in the returned
+            trade offers will also be returned.
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: The language to use when loading item display data.
+        - name: active_only
+          in: query
+          schema:
+            type: string
+          description: >-
+            Indicates we should only return offers which are still active, or
+            offers that have changed in state since the time_historical_cutoff
+        - name: historical_only
+          in: query
+          schema:
+            type: string
+          description: Indicates we should only return offers which are not active.
+        - name: time_historical_cutoff
+          in: query
+          schema:
+            type: string
+          description: >-
+            When active_only is set, offers updated since this time will also be
+            returned
       responses:
         '200':
           description: ''
@@ -98,7 +134,7 @@ paths:
       tags:
         - IEconService Interface
       summary: GetTradeOffer
-      description: GetTradeOffer
+      description: Gets a specific trade offer
       operationId: gettradeoffer
       parameters:
         - name: key
@@ -122,7 +158,7 @@ paths:
       tags:
         - IEconService Interface
       summary: GetTradeOffersSummary
-      description: GetTradeOffersSummary
+      description: Get counts of pending and new trade offers
       operationId: gettradeofferssummary
       parameters:
         - name: key
@@ -145,7 +181,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: GetAccountList
-      description: GetAccountList
+      description: Gets a list of game server accounts with their logon tokens
       operationId: getaccountlist
       parameters:
         - name: key
@@ -162,7 +198,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: CreateAccount
-      description: CreateAccount
+      description: Creates a persistent game server account
       operationId: createaccount
       parameters:
         - name: key
@@ -188,7 +224,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: SetMemo
-      description: SetMemo
+      description: This method changes the memo associated with the game server account. Memos do not affect the account in any way. The memo shows up in the GetAccountList response and serves only as a reminder of what the account is used for.
       operationId: setmemo
       parameters:
         - name: key
@@ -214,7 +250,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: ResetLoginToken
-      description: ResetLoginToken
+      description: Generates a new login token for the specified game server
       operationId: resetlogintoken
       parameters:
         - name: key
@@ -235,7 +271,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: DeleteAccount
-      description: DeleteAccount
+      description: Deletes a persistent game server account
       operationId: deleteaccount
       parameters:
         - name: key
@@ -256,7 +292,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: GetAccountPublicInfo
-      description: GetAccountPublicInfo
+      description: Gets public information about a given game server account
       operationId: getaccountpublicinfo
       parameters:
         - name: key
@@ -277,7 +313,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: QueryLoginToken
-      description: QueryLoginToken
+      description: Queries the status of the specified token, which must be owned by you
       operationId: querylogintoken
       parameters:
         - name: key
@@ -298,7 +334,7 @@ paths:
       tags:
         - IGameServersService Interface
       summary: GetServerSteamIDsByIP
-      description: GetServerSteamIDsByIP
+      description: Gets a list of server SteamIDs given a list of IPs
       operationId: getserversteamidsbyip
       parameters:
         - name: key
@@ -314,12 +350,33 @@ paths:
       responses:
         '200':
           description: ''
+  /IGameServersService/GetServerIPsBySteamID/v1/:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: GetServerIPsBySteamID
+      description: Gets a list of server IP addresses given a list of SteamIDs
+      operationId: getserveripsbysteamid
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: server_steamids
+          in: query
+          schema:
+            type: string
+          description: (optional)
+      responses:
+        '200':
+          description: ''
   /IPlayerService/GetRecentlyPlayedGames/v1/:
     get:
       tags:
         - IPlayerService Interface
       summary: GetRecentlyPlayedGames
-      description: GetRecentlyPlayedGames
+      description: Gets information about a player's recently played games
       operationId: getrecentlyplayedgames
       parameters:
         - name: key
@@ -345,7 +402,7 @@ paths:
       tags:
         - IPlayerService Interface
       summary: GetOwnedGames
-      description: GetOwnedGames
+      description: Return a list of games owned by the player
       operationId: getownedgames
       parameters:
         - name: key
@@ -388,7 +445,7 @@ paths:
       tags:
         - IPlayerService Interface
       summary: GetSteamLevel
-      description: GetSteamLevel
+      description: Returns the Steam Level of a user
       operationId: getsteamlevel
       parameters:
         - name: key
@@ -409,7 +466,7 @@ paths:
       tags:
         - IPlayerService Interface
       summary: GetBadges
-      description: GetBadges
+      description: Gets badges that are owned by a specific user
       operationId: getbadges
       parameters:
         - name: key
@@ -430,7 +487,7 @@ paths:
       tags:
         - IPlayerService Interface
       summary: GetCommunityBadgeProgress
-      description: GetCommunityBadgeProgress
+      description: Gets all the quests needed to get the specified badge, and which are completed
       operationId: getcommunitybadgeprogress
       parameters:
         - name: key
@@ -456,7 +513,7 @@ paths:
       tags:
         - ISteamApps Interface
       summary: GetAppList
-      description: GetAppList
+      description: Gets the complete list of public apps.
       operationId: getapplist
       responses:
         '200':
@@ -487,7 +544,7 @@ paths:
       tags:
         - ISteamNews Interface
       summary: GetNewsForApp
-      description: GetNewsForApp
+      description: Get the news for the specified app.
       operationId: getnewsforapp
       parameters:
         - name: appid
@@ -645,7 +702,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetGlobalAchievementPercentagesForApp
-      description: GetGlobalAchievementPercentagesForApp
+      description: Retrieves the global achievement percentages for the specified app.
       operationId: getglobalachievementpercentagesforapp
       parameters:
         - name: gameid
@@ -662,7 +719,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetGlobalStatsForGame
-      description: GetGlobalStatsForGame
+      description: Retrieves the global stats percentages for the specified app.
       operationId: getglobalstatsforgame
       parameters:
         - name: appid
@@ -701,7 +758,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetNumberOfCurrentPlayers
-      description: GetNumberOfCurrentPlayers
+      description: Gets the total number of players currently active in the specified app on Steam.
       operationId: getnumberofcurrentplayers
       parameters:
         - name: appid
@@ -718,7 +775,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetPlayerAchievements
-      description: GetPlayerAchievements
+      description: Gets the list of achievements the specified user has unlocked in an app.
       operationId: getplayerachievements
       parameters:
         - name: key
@@ -749,7 +806,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetSchemaForGame
-      description: GetSchemaForGame
+      description: Gets the complete list of stats and achievements for the specified game.
       operationId: getschemaforgame
       parameters:
         - name: key
@@ -775,7 +832,7 @@ paths:
       tags:
         - ISteamUserStats Interface
       summary: GetUserStatsForGame
-      description: GetUserStatsForGame
+      description: Gets the list of stats that the specified user has set in an app.
       operationId: getuserstatsforgame
       parameters:
         - name: key
@@ -811,7 +868,7 @@ paths:
       tags:
         - ISteamWebAPIUtil Interface
       summary: GetSupportedAPIList
-      description: GetSupportedAPIList
+      description: Gets the list of supported API calls.
       operationId: getsupportedapilist
       parameters:
         - name: key

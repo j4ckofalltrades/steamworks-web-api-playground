@@ -81,7 +81,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "?key&get_sent_offers&get_received_offers&get_descriptions&language&active_only&historical_only&time_historical_cutoff",
+							"raw": "{{baseUrl}}/IEconService/GetTradeOffers/v1?key&get_sent_offers&get_received_offers&get_descriptions&language&active_only&historical_only&time_historical_cutoff",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IEconService",
+								"GetTradeOffers",
+								"v1"
+							],
 							"query": [
 								{
 									"key": "key",
@@ -469,7 +477,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "?key",
+							"raw": "{{baseUrl}}/IGameServersService/GetServerIPsBySteamID/v1/?key",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"GetServerIPsBySteamID",
+								"v1",
+								""
+							],
 							"query": [
 								{
 									"key": "key",
