@@ -1,0 +1,846 @@
+openapi: 3.0.3
+info:
+  title: Steamworks Web API
+  description: '[Steamworks Web API Reference](https://partner.steamgames.com/doc/webapi)'
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: https://api.steampowered.com
+paths:
+  /IEconService/GetTradeHistory/v1/:
+    get:
+      tags:
+        - IEconService Interface
+      summary: GetTradeHistory
+      description: GetTradeHistory
+      operationId: gettradehistory
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: max_trades
+          in: query
+          schema:
+            type: string
+          description: The number of trades to return information for
+        - name: start_after_time
+          in: query
+          schema:
+            type: string
+          description: >-
+            The time of the last trade shown on the previous page of results, or
+            the time of the first trade if navigating back
+        - name: start_after_tradeid
+          in: query
+          schema:
+            type: string
+          description: >-
+            The tradeid shown on the previous page of results, or the ID of the
+            first trade if navigating back
+        - name: navigating_back
+          in: query
+          schema:
+            type: string
+          description: >-
+            The user wants the previous page of results, so return the previous
+            max_trades trades before the start time and ID
+        - name: get_descriptions
+          in: query
+          schema:
+            type: string
+          description: >-
+            If set, the item display data for the items included in the returned
+            trades will also be returned
+        - name: language
+          in: query
+          schema:
+            type: string
+          description: The language to use when loading item display data
+        - name: include_failed
+          in: query
+          schema:
+            type: string
+        - name: include_total
+          in: query
+          schema:
+            type: string
+          description: >-
+            If set, the total number of trades the account has participated in
+            will be included in the response
+      responses:
+        '200':
+          description: ''
+  /:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: GetServerIPsBySteamID
+      description: GetServerIPsBySteamID
+      operationId: getserveripsbysteamid
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: server_steamids
+          in: query
+          schema:
+            type: string
+          description: (optional)
+      responses:
+        '200':
+          description: ''
+  /IEconService/GetTradeOffer/v1/:
+    get:
+      tags:
+        - IEconService Interface
+      summary: GetTradeOffer
+      description: GetTradeOffer
+      operationId: gettradeoffer
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: tradeofferid
+          in: query
+          schema:
+            type: string
+        - name: language
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /IEconService/GetTradeOffersSummary/v1/:
+    get:
+      tags:
+        - IEconService Interface
+      summary: GetTradeOffersSummary
+      description: GetTradeOffersSummary
+      operationId: gettradeofferssummary
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: time_last_visit
+          in: query
+          schema:
+            type: string
+          description: >-
+            The time the user last visited. If not passed, will use the time the
+            user last visited the trade offer page.
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/GetAccountList/v1/:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: GetAccountList
+      description: GetAccountList
+      operationId: getaccountlist
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: Steamworks Web API user authentication key.
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/CreateAccount/v1/:
+    post:
+      tags:
+        - IGameServersService Interface
+      summary: CreateAccount
+      description: CreateAccount
+      operationId: createaccount
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: The app to use the account for
+        - name: memo
+          in: query
+          schema:
+            type: string
+          description: The memo to set on the new account
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/SetMemo/v1/:
+    post:
+      tags:
+        - IGameServersService Interface
+      summary: SetMemo
+      description: SetMemo
+      operationId: setmemo
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The SteamID of the game server to set the memo on
+        - name: memo
+          in: query
+          schema:
+            type: string
+          description: The memo to set on the new account
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/ResetLoginToken/v1/:
+    post:
+      tags:
+        - IGameServersService Interface
+      summary: ResetLoginToken
+      description: ResetLoginToken
+      operationId: resetlogintoken
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The SteamID of the game server to reset the login token of
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/DeleteAccount/v1/:
+    post:
+      tags:
+        - IGameServersService Interface
+      summary: DeleteAccount
+      description: DeleteAccount
+      operationId: deleteaccount
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The SteamID of the game server account to delete
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/GetAccountPublicInfo/v1/:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: GetAccountPublicInfo
+      description: GetAccountPublicInfo
+      operationId: getaccountpublicinfo
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The SteamID of the game server to get info on
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/QueryLoginToken/v1/:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: QueryLoginToken
+      description: QueryLoginToken
+      operationId: querylogintoken
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: login_token
+          in: query
+          schema:
+            type: string
+          description: Login token to query
+      responses:
+        '200':
+          description: ''
+  /IGameServersService/GetServerSteamIDsByIP/v1/:
+    get:
+      tags:
+        - IGameServersService Interface
+      summary: GetServerSteamIDsByIP
+      description: GetServerSteamIDsByIP
+      operationId: getserversteamidsbyip
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: server_ips
+          in: query
+          schema:
+            type: string
+          description: (optional)
+      responses:
+        '200':
+          description: ''
+  /IPlayerService/GetRecentlyPlayedGames/v1/:
+    get:
+      tags:
+        - IPlayerService Interface
+      summary: GetRecentlyPlayedGames
+      description: GetRecentlyPlayedGames
+      operationId: getrecentlyplayedgames
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The player we're asking about
+        - name: count
+          in: query
+          schema:
+            type: string
+          description: 'The number of games to return (0/unset: all)'
+      responses:
+        '200':
+          description: ''
+  /IPlayerService/GetOwnedGames/v1/:
+    get:
+      tags:
+        - IPlayerService Interface
+      summary: GetOwnedGames
+      description: GetOwnedGames
+      operationId: getownedgames
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: The player we're asking about
+        - name: include_appinfo
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: true if we want additional details (name, icon) about each game
+        - name: include_played_free_games
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: >-
+            Free games are excluded by default. If this is set, free games the
+            user has played will be returned.
+        - name: appids_filter
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: if set, restricts result set to the passed in apps
+      responses:
+        '200':
+          description: ''
+  /IPlayerService/GetSteamLevel/v1/:
+    get:
+      tags:
+        - IPlayerService Interface
+      summary: GetSteamLevel
+      description: GetSteamLevel
+      operationId: getsteamlevel
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The player we're asking about
+      responses:
+        '200':
+          description: ''
+  /IPlayerService/GetBadges/v1/:
+    get:
+      tags:
+        - IPlayerService Interface
+      summary: GetBadges
+      description: GetBadges
+      operationId: getbadges
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The player we're asking about
+      responses:
+        '200':
+          description: ''
+  /IPlayerService/GetCommunityBadgeProgress/v1/:
+    get:
+      tags:
+        - IPlayerService Interface
+      summary: GetCommunityBadgeProgress
+      description: GetCommunityBadgeProgress
+      operationId: getcommunitybadgeprogress
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: The player we're asking about
+        - name: badgeid
+          in: query
+          schema:
+            type: string
+          description: The badge we're asking about
+      responses:
+        '200':
+          description: ''
+  /ISteamApps/GetAppList/v2/:
+    get:
+      tags:
+        - ISteamApps Interface
+      summary: GetAppList
+      description: GetAppList
+      operationId: getapplist
+      responses:
+        '200':
+          description: ''
+  /ISteamApps/UpToDateCheck/v1/:
+    get:
+      tags:
+        - ISteamApps Interface
+      summary: UpToDateCheck
+      description: UpToDateCheck
+      operationId: uptodatecheck
+      parameters:
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: AppID of game
+        - name: version
+          in: query
+          schema:
+            type: string
+          description: The installed version of the game
+      responses:
+        '200':
+          description: ''
+  /ISteamNews/GetNewsForApp/v2/:
+    get:
+      tags:
+        - ISteamNews Interface
+      summary: GetNewsForApp
+      description: GetNewsForApp
+      operationId: getnewsforapp
+      parameters:
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: AppId to retrieve news for
+        - name: maxlength
+          in: query
+          schema:
+            type: string
+          description: >-
+            (optional) Maximum length for the content to return, if this is 0
+            the full content is returned, if it's less then a blurb is generated
+            to fit.
+        - name: enddate
+          in: query
+          schema:
+            type: string
+          description: >-
+            (optional) Retrieve posts earlier than this date (unix epoch
+            timestamp)
+        - name: count
+          in: query
+          schema:
+            type: string
+          description: '(optional) # of posts to retrieve (default 20)'
+        - name: feeds
+          in: query
+          schema:
+            type: string
+          description: (optional) Comma-seperated list of feed names to return news for
+      responses:
+        '200':
+          description: ''
+  /ISteamUser/GetFriendList/v1/:
+    get:
+      tags:
+        - ISteamUser Interface
+      summary: GetFriendList
+      description: GetFriendList
+      operationId: getfriendlist
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: SteamID of user
+        - name: relationship
+          in: query
+          schema:
+            type: string
+          description: '(optional) relationship type (ex: friend)'
+      responses:
+        '200':
+          description: ''
+  /ISteamUser/GetPlayerBans/v1/:
+    get:
+      tags:
+        - ISteamUser Interface
+      summary: GetPlayerBans
+      description: GetPlayerBans
+      operationId: getplayerbans
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamids
+          in: query
+          schema:
+            type: string
+          description: Comma-delimited list of SteamIDs
+      responses:
+        '200':
+          description: ''
+  /ISteamUser/GetPlayerSummaries/v2/:
+    get:
+      tags:
+        - ISteamUser Interface
+      summary: GetPlayerSummaries
+      description: GetPlayerSummaries
+      operationId: getplayersummaries
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamids
+          in: query
+          schema:
+            type: string
+          description: Comma-delimited list of SteamIDs
+      responses:
+        '200':
+          description: ''
+  /ISteamUser/GetUserGroupList/v1/:
+    get:
+      tags:
+        - ISteamUser Interface
+      summary: GetUserGroupList
+      description: GetUserGroupList
+      operationId: getusergrouplist
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: 'Steamworks Web API user authentication key. '
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: SteamID of user
+      responses:
+        '200':
+          description: ''
+  /ISteamUser/ResolveVanityURL/v1/:
+    get:
+      tags:
+        - ISteamUser Interface
+      summary: ResolveVanityURL
+      description: ResolveVanityURL
+      operationId: resolvevanityurl
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: vanityurl
+          in: query
+          schema:
+            type: string
+          description: The vanity URL to get a SteamID for
+        - name: url_type
+          in: query
+          schema:
+            type: string
+          description: >-
+            (optional) The type of vanity URL. 1 (default): Individual profile,
+            2: Group, 3: Official game group
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetGlobalAchievementPercentagesForApp
+      description: GetGlobalAchievementPercentagesForApp
+      operationId: getglobalachievementpercentagesforapp
+      parameters:
+        - name: gameid
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: GameID to retrieve the achievement percentages for
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetGlobalStatsForGame/v1/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetGlobalStatsForGame
+      description: GetGlobalStatsForGame
+      operationId: getglobalstatsforgame
+      parameters:
+        - name: appid
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: AppID that we're getting global stats for
+        - name: count
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: Number of stats get data for
+        - name: name[0]
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: Names of stat to get data for
+        - name: startdate
+          in: query
+          schema:
+            type: string
+          description: (optional)
+        - name: enddate
+          in: query
+          schema:
+            type: string
+          description: (optional)
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetNumberOfCurrentPlayers/v1/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetNumberOfCurrentPlayers
+      description: GetNumberOfCurrentPlayers
+      operationId: getnumberofcurrentplayers
+      parameters:
+        - name: appid
+          in: query
+          schema:
+            type: string
+            example: '570'
+          description: AppID that we're getting user count for
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetPlayerAchievements/v1/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetPlayerAchievements
+      description: GetPlayerAchievements
+      operationId: getplayerachievements
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: SteamID of user
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: AppID to get achievements for
+        - name: l
+          in: query
+          schema:
+            type: string
+          description: (optional) Language to return strings for
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetSchemaForGame/v2/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetSchemaForGame
+      description: GetSchemaForGame
+      operationId: getschemaforgame
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: appid of game
+        - name: l
+          in: query
+          schema:
+            type: string
+          description: (optional) localized language to return (english, french, etc.)
+      responses:
+        '200':
+          description: ''
+  /ISteamUserStats/GetUserStatsForGame/v2/:
+    get:
+      tags:
+        - ISteamUserStats Interface
+      summary: GetUserStatsForGame
+      description: GetUserStatsForGame
+      operationId: getuserstatsforgame
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+          description: Steamworks Web API user authentication key.
+        - name: steamid
+          in: query
+          schema:
+            type: string
+          description: SteamID of user
+        - name: appid
+          in: query
+          schema:
+            type: string
+          description: appid of game
+      responses:
+        '200':
+          description: ''
+  /ISteamWebAPIUtil/GetServerInfo/v1/:
+    get:
+      tags:
+        - ISteamWebAPIUtil Interface
+      summary: GetServerInfo
+      description: GetServerInfo
+      operationId: getserverinfo
+      responses:
+        '200':
+          description: ''
+  /ISteamWebAPIUtil/GetSupportedAPIList/v1/:
+    get:
+      tags:
+        - ISteamWebAPIUtil Interface
+      summary: GetSupportedAPIList
+      description: GetSupportedAPIList
+      operationId: getsupportedapilist
+      parameters:
+        - name: key
+          in: query
+          schema:
+            type: string
+            example: ''
+          description: >-
+            The Steamworks Web API authentication key which is required to
+            receive restricted methods.
+      responses:
+        '200':
+          description: ''
+tags:
+  - name: IEconService Interface
+    description: Additional Steam Economy methods that provide access to Steam Trading.
+  - name: IGameServersService Interface
+    description: Methods to improve the administration of Steam Game Servers.
+  - name: IPlayerService Interface
+    description: Provides additional methods for interacting with Steam Users.
+  - name: ISteamApps Interface
+    description: Used to access data about applications on Steam.
+  - name: ISteamNews Interface
+    description: Provides access to the Steam News functionality.
+  - name: ISteamUser Interface
+    description: Used to access information and interact with users.
+  - name: ISteamUserStats Interface
+    description: Used to access information about users.
+  - name: ISteamWebAPIUtil Interface
+    description: >-
+      Provides miscellaneous Web API related functionality through utility
+      methods.

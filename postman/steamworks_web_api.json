@@ -1,0 +1,1285 @@
+{
+	"info": {
+		"_postman_id": "17f0a13a-4059-4601-8557-2f9d742bed8b",
+		"name": "Steamworks Web API",
+		"description": "[Steamworks Web API Reference](https://partner.steamgames.com/doc/webapi)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IEconService Interface",
+			"item": [
+				{
+					"name": "GetTradeHistory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IEconService/GetTradeHistory/v1/?key&max_trades&start_after_time&start_after_tradeid&navigating_back&get_descriptions&language&include_failed&include_total",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IEconService",
+								"GetTradeHistory",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "max_trades",
+									"value": null,
+									"description": "The number of trades to return information for"
+								},
+								{
+									"key": "start_after_time",
+									"value": null,
+									"description": "The time of the last trade shown on the previous page of results, or the time of the first trade if navigating back"
+								},
+								{
+									"key": "start_after_tradeid",
+									"value": null,
+									"description": "The tradeid shown on the previous page of results, or the ID of the first trade if navigating back"
+								},
+								{
+									"key": "navigating_back",
+									"value": null,
+									"description": "The user wants the previous page of results, so return the previous max_trades trades before the start time and ID"
+								},
+								{
+									"key": "get_descriptions",
+									"value": null,
+									"description": "If set, the item display data for the items included in the returned trades will also be returned"
+								},
+								{
+									"key": "language",
+									"value": null,
+									"description": "The language to use when loading item display data"
+								},
+								{
+									"key": "include_failed",
+									"value": null
+								},
+								{
+									"key": "include_total",
+									"value": null,
+									"description": "If set, the total number of trades the account has participated in will be included in the response"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTradeOffers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "?key&get_sent_offers&get_received_offers&get_descriptions&language&active_only&historical_only&time_historical_cutoff",
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "get_sent_offers",
+									"value": null,
+									"description": "Request the list of sent offers."
+								},
+								{
+									"key": "get_received_offers",
+									"value": null,
+									"description": "Request the list of received offers."
+								},
+								{
+									"key": "get_descriptions",
+									"value": null,
+									"description": "If set, the item display data for the items included in the returned trade offers will also be returned."
+								},
+								{
+									"key": "language",
+									"value": null,
+									"description": "The language to use when loading item display data."
+								},
+								{
+									"key": "active_only",
+									"value": null,
+									"description": "Indicates we should only return offers which are still active, or offers that have changed in state since the time_historical_cutoff"
+								},
+								{
+									"key": "historical_only",
+									"value": null,
+									"description": "Indicates we should only return offers which are not active."
+								},
+								{
+									"key": "time_historical_cutoff",
+									"value": null,
+									"description": "When active_only is set, offers updated since this time will also be returned"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTradeOffer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IEconService/GetTradeOffer/v1/?key&tradeofferid&language",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IEconService",
+								"GetTradeOffer",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "tradeofferid",
+									"value": null
+								},
+								{
+									"key": "language",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTradeOffersSummary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IEconService/GetTradeOffersSummary/v1/?key&time_last_visit",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IEconService",
+								"GetTradeOffersSummary",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "time_last_visit",
+									"value": null,
+									"description": "The time the user last visited. If not passed, will use the time the user last visited the trade offer page."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Additional Steam Economy methods that provide access to Steam Trading."
+		},
+		{
+			"name": "IGameServersService Interface",
+			"item": [
+				{
+					"name": "GetAccountList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/GetAccountList/v1/?key=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"GetAccountList",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "",
+									"description": "Steamworks Web API user authentication key."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/CreateAccount/v1/?key&appid&memo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"CreateAccount",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "appid",
+									"value": null,
+									"description": "The app to use the account for"
+								},
+								{
+									"key": "memo",
+									"value": null,
+									"description": "The memo to set on the new account"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetMemo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/SetMemo/v1/?key&steamid&memo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"SetMemo",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The SteamID of the game server to set the memo on"
+								},
+								{
+									"key": "memo",
+									"value": null,
+									"description": "The memo to set on the new account"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetLoginToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/ResetLoginToken/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"ResetLoginToken",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The SteamID of the game server to reset the login token of"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/DeleteAccount/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"DeleteAccount",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The SteamID of the game server account to delete"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountPublicInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/GetAccountPublicInfo/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"GetAccountPublicInfo",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The SteamID of the game server to get info on"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "QueryLoginToken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/QueryLoginToken/v1/?key&login_token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"QueryLoginToken",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "login_token",
+									"value": null,
+									"description": "Login token to query"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetServerSteamIDsByIP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IGameServersService/GetServerSteamIDsByIP/v1/?key",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IGameServersService",
+								"GetServerSteamIDsByIP",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "server_ips",
+									"value": null,
+									"description": "(optional)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetServerIPsBySteamID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "?key",
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "server_steamids",
+									"value": null,
+									"description": "(optional)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Methods to improve the administration of Steam Game Servers."
+		},
+		{
+			"name": "IPlayerService Interface",
+			"item": [
+				{
+					"name": "GetRecentlyPlayedGames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IPlayerService/GetRecentlyPlayedGames/v1/?key&steamid&count",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IPlayerService",
+								"GetRecentlyPlayedGames",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The player we're asking about"
+								},
+								{
+									"key": "count",
+									"value": null,
+									"description": "The number of games to return (0/unset: all)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOwnedGames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IPlayerService/GetOwnedGames/v1/?key=&steamid=&include_appinfo=&include_played_free_games=&appids_filter=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IPlayerService",
+								"GetOwnedGames",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "",
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": "",
+									"description": "The player we're asking about"
+								},
+								{
+									"key": "include_appinfo",
+									"value": "",
+									"description": "true if we want additional details (name, icon) about each game"
+								},
+								{
+									"key": "include_played_free_games",
+									"value": "",
+									"description": "Free games are excluded by default. If this is set, free games the user has played will be returned."
+								},
+								{
+									"key": "appids_filter",
+									"value": "",
+									"description": "if set, restricts result set to the passed in apps"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSteamLevel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IPlayerService/GetSteamLevel/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IPlayerService",
+								"GetSteamLevel",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The player we're asking about"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBadges",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IPlayerService/GetBadges/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IPlayerService",
+								"GetBadges",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The player we're asking about"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCommunityBadgeProgress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/IPlayerService/GetCommunityBadgeProgress/v1/?key&steamid&badgeid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"IPlayerService",
+								"GetCommunityBadgeProgress",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "The player we're asking about"
+								},
+								{
+									"key": "badgeid",
+									"value": null,
+									"description": "The badge we're asking about"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Provides additional methods for interacting with Steam Users."
+		},
+		{
+			"name": "ISteamApps Interface",
+			"item": [
+				{
+					"name": "GetAppList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamApps/GetAppList/v2/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamApps",
+								"GetAppList",
+								"v2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpToDateCheck",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamApps/UpToDateCheck/v1/?appid&version",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamApps",
+								"UpToDateCheck",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": null,
+									"description": "AppID of game"
+								},
+								{
+									"key": "version",
+									"value": null,
+									"description": "The installed version of the game"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Used to access data about applications on Steam."
+		},
+		{
+			"name": "ISteamNews Interface",
+			"item": [
+				{
+					"name": "GetNewsForApp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamNews/GetNewsForApp/v2/?appid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamNews",
+								"GetNewsForApp",
+								"v2",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": null,
+									"description": "AppId to retrieve news for"
+								},
+								{
+									"key": "maxlength",
+									"value": null,
+									"description": "(optional) Maximum length for the content to return, if this is 0 the full content is returned, if it's less then a blurb is generated to fit.",
+									"disabled": true
+								},
+								{
+									"key": "enddate",
+									"value": null,
+									"description": "(optional) Retrieve posts earlier than this date (unix epoch timestamp)",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": null,
+									"description": "(optional) # of posts to retrieve (default 20)",
+									"disabled": true
+								},
+								{
+									"key": "feeds",
+									"value": null,
+									"description": "(optional) Comma-seperated list of feed names to return news for",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Provides access to the Steam News functionality."
+		},
+		{
+			"name": "ISteamUser Interface",
+			"item": [
+				{
+					"name": "GetFriendList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUser/GetFriendList/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUser",
+								"GetFriendList",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key"
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "SteamID of user"
+								},
+								{
+									"key": "relationship",
+									"value": null,
+									"description": "(optional) relationship type (ex: friend)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPlayerBans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUser/GetPlayerBans/v1/?key&steamids",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUser",
+								"GetPlayerBans",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamids",
+									"value": null,
+									"description": "Comma-delimited list of SteamIDs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPlayerSummaries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUser/GetPlayerSummaries/v2/?key&steamids",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUser",
+								"GetPlayerSummaries",
+								"v2",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamids",
+									"value": null,
+									"description": "Comma-delimited list of SteamIDs"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserGroupList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUser/GetUserGroupList/v1/?key&steamid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUser",
+								"GetUserGroupList",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key. "
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "SteamID of user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResolveVanityURL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUser/ResolveVanityURL/v1/?key&vanityurl",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUser",
+								"ResolveVanityURL",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "vanityurl",
+									"value": null,
+									"description": "The vanity URL to get a SteamID for"
+								},
+								{
+									"key": "url_type",
+									"value": null,
+									"description": "(optional) The type of vanity URL. 1 (default): Individual profile, 2: Group, 3: Official game group",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Used to access information and interact with users."
+		},
+		{
+			"name": "ISteamUserStats Interface",
+			"item": [
+				{
+					"name": "GetGlobalAchievementPercentagesForApp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetGlobalAchievementPercentagesForApp",
+								"v2",
+								""
+							],
+							"query": [
+								{
+									"key": "gameid",
+									"value": "",
+									"description": "GameID to retrieve the achievement percentages for"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetGlobalStatsForGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetGlobalStatsForGame/v1/?appid=&count=&name[0]=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetGlobalStatsForGame",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": "",
+									"description": "AppID that we're getting global stats for"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "Number of stats get data for"
+								},
+								{
+									"key": "name[0]",
+									"value": "",
+									"description": "Names of stat to get data for"
+								},
+								{
+									"key": "startdate",
+									"value": null,
+									"description": "(optional)",
+									"disabled": true
+								},
+								{
+									"key": "enddate",
+									"value": null,
+									"description": "(optional)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetNumberOfCurrentPlayers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=570",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetNumberOfCurrentPlayers",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": "570",
+									"description": "AppID that we're getting user count for"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPlayerAchievements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetPlayerAchievements/v1/?key&steamid&appid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetPlayerAchievements",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "SteamID of user"
+								},
+								{
+									"key": "appid",
+									"value": null,
+									"description": "AppID to get achievements for"
+								},
+								{
+									"key": "l",
+									"value": null,
+									"description": "(optional) Language to return strings for",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSchemaForGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetSchemaForGame/v2/?key&appid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetSchemaForGame",
+								"v2",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "appid",
+									"value": null,
+									"description": "appid of game"
+								},
+								{
+									"key": "l",
+									"value": null,
+									"description": "(optional) localized language to return (english, french, etc.)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserStatsForGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamUserStats/GetUserStatsForGame/v2/?key&steamid&appid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetUserStatsForGame",
+								"v2",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": null,
+									"description": "Steamworks Web API user authentication key."
+								},
+								{
+									"key": "steamid",
+									"value": null,
+									"description": "SteamID of user"
+								},
+								{
+									"key": "appid",
+									"value": null,
+									"description": "appid of game"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Used to access information about users."
+		},
+		{
+			"name": "ISteamWebAPIUtil Interface",
+			"item": [
+				{
+					"name": "GetServerInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamWebAPIUtil/GetServerInfo/v1/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamWebAPIUtil",
+								"GetServerInfo",
+								"v1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSupportedAPIList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ISteamWebAPIUtil/GetSupportedAPIList/v1/?key=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ISteamWebAPIUtil",
+								"GetSupportedAPIList",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "",
+									"description": "The Steamworks Web API authentication key which is required to receive restricted methods."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Provides miscellaneous Web API related functionality through utility methods."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.steampowered.com",
+			"type": "default"
+		}
+	]
+}
